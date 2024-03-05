@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'retrieveportaldatawidget.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.6.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,19 +15,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFormLayout, QGridLayout, QGroupBox,
+from PySide6.QtWidgets import (QApplication, QFormLayout, QGroupBox, QHBoxLayout,
     QHeaderView, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QTableView, QWidget)
+    QSizePolicy, QSpacerItem, QTableView, QVBoxLayout,
+    QWidget)
 
 class Ui_RetrievePortalDataWidget(object):
     def setupUi(self, RetrievePortalDataWidget):
         if not RetrievePortalDataWidget.objectName():
             RetrievePortalDataWidget.setObjectName(u"RetrievePortalDataWidget")
         RetrievePortalDataWidget.resize(714, 584)
-        self.gridLayout = QGridLayout(RetrievePortalDataWidget)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.subgridLayout = QGridLayout()
-        self.subgridLayout.setObjectName(u"subgridLayout")
+        self.verticalLayout = QVBoxLayout(RetrievePortalDataWidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
         self.manifestGroupBox = QGroupBox(RetrievePortalDataWidget)
         self.manifestGroupBox.setObjectName(u"manifestGroupBox")
         self.manifestFormLayout = QFormLayout(self.manifestGroupBox)
@@ -58,30 +57,48 @@ class Ui_RetrievePortalDataWidget(object):
         self.manifestFormLayout.setWidget(2, QFormLayout.FieldRole, self.pushButtonSearch)
 
 
-        self.subgridLayout.addWidget(self.manifestGroupBox, 0, 0, 1, 1)
+        self.verticalLayout.addWidget(self.manifestGroupBox)
 
         self.tableViewSearchResult = QTableView(RetrievePortalDataWidget)
         self.tableViewSearchResult.setObjectName(u"tableViewSearchResult")
 
-        self.subgridLayout.addWidget(self.tableViewSearchResult, 1, 0, 1, 1)
+        self.verticalLayout.addWidget(self.tableViewSearchResult)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_5)
 
         self.pushButtonDownload = QPushButton(RetrievePortalDataWidget)
         self.pushButtonDownload.setObjectName(u"pushButtonDownload")
 
-        self.subgridLayout.addWidget(self.pushButtonDownload, 2, 0, 1, 1)
+        self.horizontalLayout.addWidget(self.pushButtonDownload)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
 
         self.pushButtonExportVTK = QPushButton(RetrievePortalDataWidget)
         self.pushButtonExportVTK.setObjectName(u"pushButtonExportVTK")
 
-        self.subgridLayout.addWidget(self.pushButtonExportVTK, 3, 0, 1, 1)
+        self.horizontalLayout.addWidget(self.pushButtonExportVTK)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
         self.pushButtonAnalyse = QPushButton(RetrievePortalDataWidget)
         self.pushButtonAnalyse.setObjectName(u"pushButtonAnalyse")
 
-        self.subgridLayout.addWidget(self.pushButtonAnalyse, 4, 0, 1, 1)
+        self.horizontalLayout.addWidget(self.pushButtonAnalyse)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_3)
 
 
-        self.gridLayout.addLayout(self.subgridLayout, 0, 0, 1, 1)
+        self.verticalLayout.addLayout(self.horizontalLayout)
 
 
         self.retranslateUi(RetrievePortalDataWidget)
