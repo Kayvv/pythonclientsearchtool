@@ -25,5 +25,8 @@ classifiers=[
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+[tool.setuptools.packages.find]
+where = ["src/"]
+
 [project.gui-scripts]
 sparc-search-tool = "main:main"
