@@ -16,8 +16,6 @@ class RetrievePortalDataWidget(QtWidgets.QWidget):
         self._list_files = None
         self._ui = Ui_RetrievePortalDataWidget()
         self._ui.setupUi(self)
-        self._ui.tableViewSearchResult.setSelectionMode(QtWidgets.QTableView.SelectionMode.SingleSelection)
-        self._ui.tableViewSearchResult.setSelectionBehavior(QtWidgets.QTableView.SelectionBehavior.SelectRows)
 
         self._pennsieve_service = PennsieveService(connect=False)
         self._zinc = ZincHelper()
@@ -49,8 +47,8 @@ class RetrievePortalDataWidget(QtWidgets.QWidget):
             self._model.setItem(row, 2, item)
 
         self._ui.tableViewSearchResult.setModel(self._model)
-        self._ui.tableViewSearchResult.horizontalHeader().setStretchLastSection(True)
         self._ui.tableViewSearchResult.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+        self._ui.tableViewSearchResult.horizontalHeader().setStretchLastSection(True)
         self._selection_model = self._ui.tableViewSearchResult.selectionModel()
         self._selection_model.selectionChanged.connect(self._update_ui)
 

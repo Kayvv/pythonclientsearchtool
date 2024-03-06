@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFormLayout, QGroupBox, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QSpacerItem, QTableView, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFormLayout, QGroupBox,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QSpacerItem, QTableView,
+    QVBoxLayout, QWidget)
 
 class Ui_RetrievePortalDataWidget(object):
     def setupUi(self, RetrievePortalDataWidget):
@@ -61,6 +61,9 @@ class Ui_RetrievePortalDataWidget(object):
 
         self.tableViewSearchResult = QTableView(RetrievePortalDataWidget)
         self.tableViewSearchResult.setObjectName(u"tableViewSearchResult")
+        self.tableViewSearchResult.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableViewSearchResult.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.tableViewSearchResult.setSelectionBehavior(QAbstractItemView.SelectRows)
 
         self.verticalLayout.addWidget(self.tableViewSearchResult)
 
