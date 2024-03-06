@@ -34,9 +34,10 @@ class RetrievePortalDataWidget(QtWidgets.QWidget):
         self._ui.pushButtonAnalyse.setEnabled(ready)
         self._ui.pushButtonDownload.setEnabled(ready)
         self._ui.pushButtonExportVTK.setEnabled(ready)
+        self._ui.comboBoxAnalyse.setEnabled(ready)
 
     def _set_table(self, file_list):
-        self._model = QtGui.QStandardItemModel(4, 3)
+        self._model = QtGui.QStandardItemModel(0, 3)
         self._model.setHorizontalHeaderLabels(['Filename', 'Dataset ID', 'Dataset Version'])
         for row in range(len(file_list)):
             item = QtGui.QStandardItem("%s" % (file_list[row]["name"]))
