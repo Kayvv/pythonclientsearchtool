@@ -1,13 +1,9 @@
-import os.path
-
 from PySide6 import QtGui, QtWidgets
 
 from ui_retrieveportaldatawidget import Ui_RetrievePortalDataWidget
 
 from sparc.client.services.pennsieve import PennsieveService
 from sparc.client.zinchelper import ZincHelper
-
-here = os.path.abspath(os.path.dirname(__file__))
 
 
 class RetrievePortalDataWidget(QtWidgets.QWidget):
