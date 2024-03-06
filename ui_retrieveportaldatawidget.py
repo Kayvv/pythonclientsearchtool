@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFormLayout, QGroupBox,
-    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QPushButton, QSizePolicy, QSpacerItem, QTableView,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QComboBox, QFormLayout,
+    QGroupBox, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
+    QTableView, QVBoxLayout, QWidget)
 
 class Ui_RetrievePortalDataWidget(object):
     def setupUi(self, RetrievePortalDataWidget):
@@ -91,6 +91,17 @@ class Ui_RetrievePortalDataWidget(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
+        self.comboBoxAnalyse = QComboBox(RetrievePortalDataWidget)
+        self.comboBoxAnalyse.addItem("")
+        self.comboBoxAnalyse.addItem("")
+        self.comboBoxAnalyse.addItem("")
+        self.comboBoxAnalyse.addItem("")
+        self.comboBoxAnalyse.addItem("")
+        self.comboBoxAnalyse.addItem("")
+        self.comboBoxAnalyse.setObjectName(u"comboBoxAnalyse")
+
+        self.horizontalLayout.addWidget(self.comboBoxAnalyse)
+
         self.pushButtonAnalyse = QPushButton(RetrievePortalDataWidget)
         self.pushButtonAnalyse.setObjectName(u"pushButtonAnalyse")
 
@@ -116,6 +127,13 @@ class Ui_RetrievePortalDataWidget(object):
         self.pushButtonSearch.setText(QCoreApplication.translate("RetrievePortalDataWidget", u"Search", None))
         self.pushButtonDownload.setText(QCoreApplication.translate("RetrievePortalDataWidget", u"Download", None))
         self.pushButtonExportVTK.setText(QCoreApplication.translate("RetrievePortalDataWidget", u"Export VTK", None))
+        self.comboBoxAnalyse.setItemText(0, QCoreApplication.translate("RetrievePortalDataWidget", u"heart", None))
+        self.comboBoxAnalyse.setItemText(1, QCoreApplication.translate("RetrievePortalDataWidget", u"lung", None))
+        self.comboBoxAnalyse.setItemText(2, QCoreApplication.translate("RetrievePortalDataWidget", u"stomach", None))
+        self.comboBoxAnalyse.setItemText(3, QCoreApplication.translate("RetrievePortalDataWidget", u"kidney", None))
+        self.comboBoxAnalyse.setItemText(4, QCoreApplication.translate("RetrievePortalDataWidget", u"colon", None))
+        self.comboBoxAnalyse.setItemText(5, QCoreApplication.translate("RetrievePortalDataWidget", u"skin", None))
+
         self.pushButtonAnalyse.setText(QCoreApplication.translate("RetrievePortalDataWidget", u"Analyse", None))
     # retranslateUi
 

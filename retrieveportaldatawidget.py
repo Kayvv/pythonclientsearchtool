@@ -83,7 +83,8 @@ class RetrievePortalDataWidget(QtWidgets.QWidget):
         for index in indexes:
             self._pennsieve_service.download_file(self._list_files[index.row()])
             try:
-                result = self._zinc.analyse(self._list_files[index.row()]['name'], "stomach")
+                organ = self._ui.comboBoxAnalyse.currentText()
+                result = self._zinc.analyse(self._list_files[index.row()]['name'], organ)
             except ValueError:
                 result = "Input file must be an MBF XML file"
                 
