@@ -1,4 +1,4 @@
-from PySide6 import QtGui, QtWidgets
+from PySide6 import QtGui, QtWidgets, QtCore
 
 from ui_retrieveportaldatawidget import Ui_RetrievePortalDataWidget
 
@@ -82,13 +82,17 @@ class RetrievePortalDataWidget(QtWidgets.QWidget):
     def _analyse_button_clicked(self):
         indexes = self._ui.tableViewSearchResult.selectionModel().selectedRows()
         for index in indexes:
-            self._pennsieve_service.download_file(self._list_files[index.row()])
+            QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.CursorShape.WaitCursor)
             try:
-                organ = self._ui.comboBoxAnalyse.currentText()
-                result = self._zinc.analyse(self._list_files[index.row()]['name'], organ)
-            except ValueError:
-                result = "Input file must be an MBF XML file"
-                
+                self._pennsieve_service.download_file(self._list_files[index.row()])
+                try:
+                    organ = self._ui.comboBoxAnalyse.currentText()
+                    result = self._zinc.analyse(self._list_files[index.row()]['name'], organ)
+                except ValueError:
+                    result = "Input file must be an MBF XML file"
+            finally:
+                QtWidgets.QApplication.restoreOverrideCursor()
+
             dlg = QtWidgets.QMessageBox(self)
             dlg.setWindowTitle("Analyse result")
             dlg.setText(result)
